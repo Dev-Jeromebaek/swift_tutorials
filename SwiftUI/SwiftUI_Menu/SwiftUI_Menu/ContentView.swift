@@ -60,7 +60,6 @@ struct ContentView: View {
                                 } label: {
                                     Label("새 폴더 만들기", systemImage: "folder")
                                 }
-
                             }
                             
                             Section {
@@ -69,19 +68,14 @@ struct ContentView: View {
                                     Label("파일 모두 삭제", systemImage: "trash")
                                 }
                             }
-//                            Picker(selection: $selected) {
-//                                Text("dㅐ완동물 선택")
-//                                ForEach(myPets.indices, $id: \.self,
-//                                    content: { index in
-//                                        Text("\(myPets[index])")
-//                                    }
-//                                )
-//                            }
-                            
+                            Picker(selection: $selected, label: Text("애완동물 선택")){
+                                ForEach(myPets.indices, id: \.self, content: { index in
+                                    Text("\(myPets[index])").tag(index)
+                                })
+                            }
                             
                         }, label: {
-                            Circle()
-                                .foregroundColor(Color.purple)
+                            Circle().foregroundColor(Color.init(#colorLiteral(red: 0.8349713402, green: 0.1496438846, blue: 0.7993865004, alpha: 1)))
                                 .frame(width: 50, height: 50)
                                 .overlay(
                                     Label("더보기", systemImage: "ellipsis")
