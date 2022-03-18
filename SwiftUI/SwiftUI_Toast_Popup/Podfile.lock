@@ -1,0 +1,16 @@
+PODS:
+  - ExytePopupView (1.0.7)
+
+DEPENDENCIES:
+  - ExytePopupView
+
+SPEC REPOS:
+  trunk:
+    - ExytePopupView
+
+SPEC CHECKSUMS:
+  ExytePopupView: 2a0d2744f356589aad8a4d138f690231b210eba0
+
+PODFILE CHECKSUM: 71e8f321106b0e714f1a335e9a42cbddd9a8c59a
+
+COCOAPODS: 1.11.3

@@ -1,0 +1,6 @@
+framework module Pods_SwiftUI_Toast_Popup {
+  umbrella header "Pods-SwiftUI_Toast_Popup-umbrella.h"
+
+  export *
+  module * { export * }
+}
