@@ -31,16 +31,28 @@ class RefreshControlHelper {
     }
 }
 
+struct MyBottomProgressView: View {
+    var body: some View {
+        ProgressView()
+            .progressViewStyle(
+                CircularProgressViewStyle(tint: Color.blue)
+            ).scaleEffect(1.7, anchor: .center)
+    }
+}
+
 struct ContentView: View {
     @ObservedObject var randomUserViewModel = RandomUserViewModel()
-    @State private var searchQuery: String = ""
     
     let refreshControlHelper = RefreshControlHelper()
     
     var body: some View {
         NavigationView {
             List(randomUserViewModel.randomUsers) { aRandomUser in
+                
                 RandomUserRowView(aRandomUser)
+                    .onAppear {
+                        fetchMoreData(aRandomUser)
+                    }
             }
             .listStyle(.plain)
             .navigationBarHidden(true)
@@ -49,7 +61,11 @@ struct ContentView: View {
 //            }
             .introspectTableView {
                 self.configureRefreshControl($0)
-                
+            }
+            
+            // 데이터 로딩 중이라면
+            if randomUserViewModel.isLoading {
+                MyBottomProgressView()
             }
         }
     }
@@ -57,6 +73,15 @@ struct ContentView: View {
 
 // MARK: - Helper Methods
 extension ContentView {
+    
+    fileprivate func fetchMoreData(_ randomUser: RandomUser) {
+        print(#fileID, #function, #line, "")
+        if self.randomUserViewModel.randomUsers.last == randomUser {
+            print("[마지막]에 도달했다.")
+            randomUserViewModel.fetchMoreActionSubject.send()
+        }
+    }
+    
     fileprivate func configureRefreshControl(_ tableView: UITableView) {
         print(#fileID, #function, #line, "")
         let myRefreshControl = UIRefreshControl()

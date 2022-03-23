@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		644291A427EAD5D200561E9F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 644291A327EAD5D200561E9F /* Introspect */; };
+		644291A727EB09DC00561E9F /* RandomUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644291A627EB09DC00561E9F /* RandomUserRouter.swift */; };
 		64C4CD6127E9F1BD00011F8F /* SwiftUI_Alamofire_RandomUserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4CD6027E9F1BD00011F8F /* SwiftUI_Alamofire_RandomUserApp.swift */; };
 		64C4CD6327E9F1BD00011F8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4CD6227E9F1BD00011F8F /* ContentView.swift */; };
 		64C4CD6527E9F1BF00011F8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64C4CD6427E9F1BF00011F8F /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		644291A627EB09DC00561E9F /* RandomUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserRouter.swift; sourceTree = "<group>"; };
 		64C4CD5D27E9F1BD00011F8F /* SwiftUI_Alamofire_RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Alamofire_RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64C4CD6027E9F1BD00011F8F /* SwiftUI_Alamofire_RandomUserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Alamofire_RandomUserApp.swift; sourceTree = "<group>"; };
 		64C4CD6227E9F1BD00011F8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		644291A527EB09CC00561E9F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				644291A627EB09DC00561E9F /* RandomUserRouter.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		64C4CD5427E9F1BD00011F8F = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +75,7 @@
 		64C4CD5F27E9F1BD00011F8F /* SwiftUI_Alamofire_RandomUser */ = {
 			isa = PBXGroup;
 			children = (
+				644291A527EB09CC00561E9F /* API */,
 				64C4CD6E27E9F1DC00011F8F /* Data */,
 				64C4CD7127E9F1DC00011F8F /* UI */,
 				64C4CD6027E9F1BD00011F8F /* SwiftUI_Alamofire_RandomUserApp.swift */,
@@ -187,6 +198,7 @@
 				64C4CD7427E9F1DC00011F8F /* RandomUserViewModel.swift in Sources */,
 				64C4CD6127E9F1BD00011F8F /* SwiftUI_Alamofire_RandomUserApp.swift in Sources */,
 				64C4CD7727E9F1DC00011F8F /* RandomUserRowView.swift in Sources */,
+				644291A727EB09DC00561E9F /* RandomUserRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

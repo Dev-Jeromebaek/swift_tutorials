@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RandomUser: Codable, Identifiable {
+struct RandomUser: Codable, Identifiable, CustomStringConvertible {
     var id = UUID()
     var name: Name
     var photo: Photo
@@ -16,6 +16,7 @@ struct RandomUser: Codable, Identifiable {
         // 실제 가져오는 key값은 picture지만 여기서는 photo라는 변수로 사용할거라는 것을 명시
         case photo = "picture"
     }
+    
     static func getDummy() -> Self {
         print(#fileID, #function, #line, "")
         return RandomUser(name: Name.getDummy(), photo: Photo.getDummy())
@@ -30,6 +31,15 @@ struct RandomUser: Codable, Identifiable {
     var description: String {
         return name.description
     }
+}
+
+// 비교를 위한 Equatable 프로토콜
+extension RandomUser: Equatable {
+    static func == (lhs: RandomUser, rhs: RandomUser) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    
 }
 
 struct Name: Codable, CustomStringConvertible {
@@ -58,7 +68,7 @@ struct Photo: Codable {
 }
 
 
-struct Info: Codable {
+struct Info: Codable, CustomStringConvertible {
     var seed: String
     var resultsCount: Int
     var page: Int
@@ -68,6 +78,10 @@ struct Info: Codable {
         case resultsCount = "results"
         case page = "page"
         case version = "version"
+    }
+    
+    var description: String {
+        return "seed: \(seed) / version: \(version) / resultsCount: \(resultsCount) / page: \(page)"
     }
 }
 
