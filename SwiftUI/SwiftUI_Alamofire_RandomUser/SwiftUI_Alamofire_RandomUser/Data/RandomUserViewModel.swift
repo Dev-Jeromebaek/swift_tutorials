@@ -16,14 +16,22 @@ class RandomUserViewModel: ObservableObject {
     
     @Published var randomUsers = [RandomUser]()
     
+    var refreshActionSubject = PassthroughSubject<(), Never>()
+    
     var baseUrl = "https://randomuser.me/api/?results=100"
     
     init() {
         print(#fileID, #function, #line, "")
         fetchRandomUsers()
+        
+        refreshActionSubject.sink { _ in
+//            guard let self = self else { return }
+            print("RandomUserViewModel - init - refreshActionSubject")
+            self.fetchRandomUsers()
+        }.store(in: &subscription)
     }
     
-    func fetchRandomUsers() {
+    fileprivate func fetchRandomUsers() {
         print(#fileID, #function, #line, "")
         AF.request(baseUrl)
             .publishDecodable(type: RandomUserData.self) // json형태로 받은걸 swift객체로 만들어줌
